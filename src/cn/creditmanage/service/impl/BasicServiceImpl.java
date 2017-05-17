@@ -29,7 +29,6 @@ public class BasicServiceImpl implements BasicService {
     public void insert(BasicSituation record) {
         SqlSession sqlSession = PageUtil.openSqlSession();
         BasicSituationMapper basicSituationMapper = sqlSession.getMapper(BasicSituationMapper.class);
-//        record.setBsscore((record.getClassmatescore()+record.getTeacherscore())/2);
         basicSituationMapper.insertSelective(record);
         sqlSession.commit();
         sqlSession.close();

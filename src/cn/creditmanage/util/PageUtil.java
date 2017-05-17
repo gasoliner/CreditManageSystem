@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -27,5 +28,14 @@ public class PageUtil {
 
     public static SqlSession openSqlSession() {
         return sqlSessionFactory.openSession();
+    }
+
+    public static boolean isTeacher(HttpServletRequest request){
+        String role = (String) request.getSession().getAttribute("role");
+        if (role == "1"){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

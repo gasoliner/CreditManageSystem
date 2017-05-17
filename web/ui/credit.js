@@ -332,19 +332,6 @@ function showNotice(u) {
         });
     });
 }
-function login() {
-    $("#fm").form("submit",{
-        url:"/login",
-        success:function (res) {
-            window.location.href = res;
-        }
-    })
-}
-function logout() {
-    $.get("/logout",null,function (res) {
-        window.location.href = "/login_UI";
-    })
-}
 function newUser() {
     $("#fm").form("clear");
     $("#userDialog").dialog("open").dialog("setTitle","新建");
@@ -810,6 +797,20 @@ function saveReputation() {
             $("#reputationDialog").dialog("close");
             $('#dg').datagrid("reload");
         }
+    })
+}
+function login() {
+    $("#fm").form("submit",{
+        url:"/log/login",
+        success:function (res) {
+            // alert(res);
+            window.location.href = res;
+        }
+    })
+}
+function logout() {
+    $.get("/log/logout",null,function (res) {
+        window.location.href = "/UI/sign";
     })
 }
 

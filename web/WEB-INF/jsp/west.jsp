@@ -37,7 +37,7 @@
                 <a href="#" class="easyui-linkbutton" onclick="addTab('信誉状况相关','UI/xinyu')">信誉状况相关</a>
             </div>
     </div>
-    <%--<shiro:hasPermission name="user:*">--%>
+    <c:if test="${role} == '1'">
     <div title="学生管理" iconCls="icon-man" style="overflow: auto;padding: 10px;">
         <div class="menu-last">
             <a href="#" class="easyui-linkbutton" onclick="addTab('学生列表','UI/studentList')">学生列表</a>
@@ -46,7 +46,7 @@
             <a href="#" class="easyui-linkbutton" onclick="addTab('学生添加','UI/studentAdd')">学生添加</a>
         </div>
     </div>
-    <%--</shiro:hasPermission>--%>
+    </c:if>
 
 </div>
 </body>

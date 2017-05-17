@@ -11,13 +11,24 @@ public class PageInfo {
 
     int start;
 
+    String user;
+
     @Override
     public String toString() {
         return "PageInfo{" +
                 "page=" + page +
                 ", size=" + size +
                 ", start=" + start +
+                ", user='" + user + '\'' +
                 '}';
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public int getPage() {

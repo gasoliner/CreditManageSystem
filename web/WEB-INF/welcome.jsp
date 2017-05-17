@@ -1,10 +1,12 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    response.sendRedirect("/UI/sign");
+%>
 <html>
 <head>
-    <title>personalInfo.jsp</title>
+    <title>welcome</title>
 </head>
 <body>
-personalInfo.jsp personalInfo.jsp
+
 </body>
 </html>

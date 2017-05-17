@@ -3,6 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/welcome.jsp</welcome-file>
+        <!--<welcome-file>/UI/sign</welcome-file>-->
+    </welcome-file-list>
+    
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>cn.creditmanage.filter.EncodingFilter</filter-class>
@@ -73,5 +79,23 @@
     <servlet-mapping>
         <servlet-name>trustServlet</servlet-name>
         <url-pattern>/trust/*</url-pattern>
+    </servlet-mapping>
+    <!--allServlet-->
+    <servlet>
+        <servlet-name>allServlet</servlet-name>
+        <servlet-class>cn.creditmanage.servlet.AllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allServlet</servlet-name>
+        <url-pattern>/all/*</url-pattern>
+    </servlet-mapping>
+    <!--loginServlet-->
+    <servlet>
+        <servlet-name>logServlet</servlet-name>
+        <servlet-class>cn.creditmanage.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logServlet</servlet-name>
+        <url-pattern>/log/*</url-pattern>
     </servlet-mapping>
 </web-app>
