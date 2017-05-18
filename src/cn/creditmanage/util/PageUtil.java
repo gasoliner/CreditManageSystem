@@ -8,9 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-/**
- * Created by 万洪基 on 2017/5/10.
- */
+
 public class PageUtil {
 
     private static SqlSessionFactory sqlSessionFactory;

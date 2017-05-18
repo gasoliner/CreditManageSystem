@@ -243,6 +243,11 @@
 
   <select id="selectAllBasic" parameterType="pageInfo" resultType="basicSituation">
     select * from basic_situation
+    <where>
+      <if test="user != null">
+        username = #{user}
+      </if>
+    </where>
     limit #{start},#{size};
   </select>
 </mapper>

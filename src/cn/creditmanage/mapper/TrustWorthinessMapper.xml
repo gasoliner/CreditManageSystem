@@ -243,6 +243,11 @@
 
   <select id="selectAllTrust" parameterType="pageInfo" resultType="trustWorthiness">
     select * from trust_worthiness
+    <where>
+      <if test="user != null">
+        username = #{user}
+      </if>
+    </where>
     limit #{start},#{size};
   </select>
 </mapper>

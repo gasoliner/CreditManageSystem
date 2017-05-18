@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.creditmanage.mapper.ReputationMapper">
-  <resultMap id="BaseResultMap" type="cn.creditmanage.po.Reputation">
-    <id column="reid" jdbcType="INTEGER" property="reid" />
-    <result column="rescore" jdbcType="INTEGER" property="rescore" />
+<mapper namespace="cn.creditmanage.mapper.TeacherMapper">
+  <resultMap id="BaseResultMap" type="cn.creditmanage.po.Teacher">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
     <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="paytuition" jdbcType="VARCHAR" property="paytuition" />
-    <result column="nationalloan" jdbcType="VARCHAR" property="nationalloan" />
-    <result column="other" jdbcType="VARCHAR" property="other" />
+    <result column="employeenum" jdbcType="INTEGER" property="employeenum" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="classs" jdbcType="VARCHAR" property="classs" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    reid, rescore, username, paytuition, nationalloan, other
+    tid, username, employeenum, password, phone, email, classs
   </sql>
-  <select id="selectByExample" parameterType="cn.creditmanage.po.ReputationExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="cn.creditmanage.po.TeacherExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from reputation
+    from teacher
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,96 +88,105 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from reputation
-    where reid = #{reid,jdbcType=INTEGER}
+    from teacher
+    where tid = #{tid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from reputation
-    where reid = #{reid,jdbcType=INTEGER}
+    delete from teacher
+    where tid = #{tid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.creditmanage.po.ReputationExample">
-    delete from reputation
+  <delete id="deleteByExample" parameterType="cn.creditmanage.po.TeacherExample">
+    delete from teacher
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.creditmanage.po.Reputation">
-    insert into reputation (reid, rescore, username, 
-      paytuition, nationalloan, other
-      )
-    values (#{reid,jdbcType=INTEGER}, #{rescore,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
-      #{paytuition,jdbcType=VARCHAR}, #{nationalloan,jdbcType=VARCHAR}, #{other,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="cn.creditmanage.po.Teacher">
+    insert into teacher (tid, username, employeenum, 
+      password, phone, email, 
+      classs)
+    values (#{tid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{employeenum,jdbcType=INTEGER}, 
+      #{password,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{classs,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.creditmanage.po.Reputation">
-    insert into reputation
+  <insert id="insertSelective" parameterType="cn.creditmanage.po.Teacher">
+    insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="reid != null">
-        reid,
-      </if>
-      <if test="rescore != null">
-        rescore,
+      <if test="tid != null">
+        tid,
       </if>
       <if test="username != null">
         username,
       </if>
-      <if test="paytuition != null">
-        paytuition,
+      <if test="employeenum != null">
+        employeenum,
       </if>
-      <if test="nationalloan != null">
-        nationalloan,
+      <if test="password != null">
+        password,
       </if>
-      <if test="other != null">
-        other,
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="classs != null">
+        classs,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="reid != null">
-        #{reid,jdbcType=INTEGER},
-      </if>
-      <if test="rescore != null">
-        #{rescore,jdbcType=INTEGER},
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="paytuition != null">
-        #{paytuition,jdbcType=VARCHAR},
+      <if test="employeenum != null">
+        #{employeenum,jdbcType=INTEGER},
       </if>
-      <if test="nationalloan != null">
-        #{nationalloan,jdbcType=VARCHAR},
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
       </if>
-      <if test="other != null">
-        #{other,jdbcType=VARCHAR},
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="classs != null">
+        #{classs,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.creditmanage.po.ReputationExample" resultType="java.lang.Long">
-    select count(*) from reputation
+  <select id="countByExample" parameterType="cn.creditmanage.po.TeacherExample" resultType="java.lang.Long">
+    select count(*) from teacher
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update reputation
+    update teacher
     <set>
-      <if test="record.reid != null">
-        reid = #{record.reid,jdbcType=INTEGER},
-      </if>
-      <if test="record.rescore != null">
-        rescore = #{record.rescore,jdbcType=INTEGER},
+      <if test="record.tid != null">
+        tid = #{record.tid,jdbcType=INTEGER},
       </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.paytuition != null">
-        paytuition = #{record.paytuition,jdbcType=VARCHAR},
+      <if test="record.employeenum != null">
+        employeenum = #{record.employeenum,jdbcType=INTEGER},
       </if>
-      <if test="record.nationalloan != null">
-        nationalloan = #{record.nationalloan,jdbcType=VARCHAR},
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.other != null">
-        other = #{record.other,jdbcType=VARCHAR},
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classs != null">
+        classs = #{record.classs,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -184,55 +194,50 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update reputation
-    set reid = #{record.reid,jdbcType=INTEGER},
-      rescore = #{record.rescore,jdbcType=INTEGER},
+    update teacher
+    set tid = #{record.tid,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
-      paytuition = #{record.paytuition,jdbcType=VARCHAR},
-      nationalloan = #{record.nationalloan,jdbcType=VARCHAR},
-      other = #{record.other,jdbcType=VARCHAR}
+      employeenum = #{record.employeenum,jdbcType=INTEGER},
+      password = #{record.password,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      classs = #{record.classs,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.creditmanage.po.Reputation">
-    update reputation
+  <update id="updateByPrimaryKeySelective" parameterType="cn.creditmanage.po.Teacher">
+    update teacher
     <set>
-      <if test="rescore != null">
-        rescore = #{rescore,jdbcType=INTEGER},
-      </if>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
       </if>
-      <if test="paytuition != null">
-        paytuition = #{paytuition,jdbcType=VARCHAR},
+      <if test="employeenum != null">
+        employeenum = #{employeenum,jdbcType=INTEGER},
       </if>
-      <if test="nationalloan != null">
-        nationalloan = #{nationalloan,jdbcType=VARCHAR},
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="other != null">
-        other = #{other,jdbcType=VARCHAR},
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="classs != null">
+        classs = #{classs,jdbcType=VARCHAR},
       </if>
     </set>
-    where reid = #{reid,jdbcType=INTEGER}
+    where tid = #{tid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.creditmanage.po.Reputation">
-    update reputation
-    set rescore = #{rescore,jdbcType=INTEGER},
-      username = #{username,jdbcType=VARCHAR},
-      paytuition = #{paytuition,jdbcType=VARCHAR},
-      nationalloan = #{nationalloan,jdbcType=VARCHAR},
-      other = #{other,jdbcType=VARCHAR}
-    where reid = #{reid,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="cn.creditmanage.po.Teacher">
+    update teacher
+    set username = #{username,jdbcType=VARCHAR},
+      employeenum = #{employeenum,jdbcType=INTEGER},
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      classs = #{classs,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
   </update>
-
-  <select id="selectAllReputation" parameterType="pageInfo" resultType="reputation">
-    select * from reputation
-    <where>
-      <if test="user != null">
-        username = #{user}
-      </if>
-    </where>
-    limit #{start},#{size};
-  </select>
 </mapper>

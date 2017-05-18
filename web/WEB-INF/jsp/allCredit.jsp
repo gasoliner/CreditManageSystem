@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>allCredit</title>
-    <link rel="stylesheet" type="text/css" href="/ui/themes/ui-pepper-grinder/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/ui/themes/material/easyui.css">
     <link rel="stylesheet" type="text/css" href="/ui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/ui/demo/demo.css">
     <link rel="stylesheet" type="text/css" href="/ui/credit.css">
@@ -12,10 +12,12 @@
     <script type="text/javascript" src="/ui/credit.js"></script>
 </head>
 <body>
-<c:if test="${role} == '1'">
+<c:if test="${role == 1}">
     <div align="center">
-        <table id="dg" title="信用信息汇总表" class="easyui-datagrid" style="width: 100%;height:auto"
-               toolbar="#toolbar"
+        <table title="信用信息汇总表" class="easyui-datagrid" style="width: 100%;height:auto"
+                <c:if test="${role== 1}">
+                    toolbar="#toolbar"
+                </c:if>
                fitColumns="true" singleSelect="true" pagination="true"
                data-options="rownumbers:true,
             url:'/all/list',
@@ -36,9 +38,9 @@
         </table>
     </div>
 </c:if>
-<c:if test="${role} == '2'">
+<c:if test="${role== 2}">
 <div align="center">
-    <table id="dg" title="信用信息汇总表" class="easyui-datagrid" style="width: 100%;height:auto"
+    <table title="信用信息汇总表" class="easyui-datagrid" style="width: 100%;height:auto"
            toolbar="#toolbar"
            fitColumns="true" singleSelect="true" pagination="true"
            data-options="rownumbers:true,

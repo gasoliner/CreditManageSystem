@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>reward_punishment</title>
-    <link rel="stylesheet" type="text/css" href="/ui/themes/ui-pepper-grinder/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/ui/themes/material/easyui.css">
     <link rel="stylesheet" type="text/css" href="/ui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/ui/demo/demo.css">
     <link rel="stylesheet" type="text/css" href="/ui/credit.css">
@@ -13,10 +14,17 @@
 <body>
 <div align="center">
     <table id="dg" title="奖惩记录相关表" class="easyui-datagrid" style="width: 100%;height:auto"
-           toolbar="#toolbar"
+    <c:if test="${role== 1}">
+        toolbar="#toolbar"
+    </c:if>
            fitColumns="true" singleSelect="true" pagination="true"
            data-options="rownumbers:true,
+<c:if test="${role== 1}">
             url:'/reward/list',
+</c:if>
+<c:if test="${role== 2}">
+            url:'/reward/list?user=${user}',
+</c:if>
             method:'get',
             pageSize:15,
             pageList:[5,10,15,20,25]">
@@ -32,11 +40,13 @@
         </thead>
     </table>
 </div>
-<div id="toolbar">
-    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newReward()">新建</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editReward()">编辑</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyReward()">删除</a>
-</div>
+<c:if test="${role== 1}">
+    <div id="toolbar">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newReward()">新建</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editReward()">编辑</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyReward()">删除</a>
+    </div>
+</c:if>
 <div id="rewardDialog" class="easyui-dialog" style="width:500px;height:550px;padding:10px 20px"
      closed="true" buttons="#rewardForm-buttons">
     <div class="ftitle">奖惩记录评分信息</div>

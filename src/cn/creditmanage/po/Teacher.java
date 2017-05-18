@@ -1,12 +1,11 @@
 package cn.creditmanage.po;
 
 public class Teacher {
-
     private Integer tid;
 
     private String username;
 
-    private Long employeenum;
+    private Integer employeenum;
 
     private String password;
 
@@ -29,14 +28,14 @@ public class Teacher {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
-    public Long getEmployeenum() {
+    public Integer getEmployeenum() {
         return employeenum;
     }
 
-    public void setEmployeenum(Long employeenum) {
+    public void setEmployeenum(Integer employeenum) {
         this.employeenum = employeenum;
     }
 
@@ -45,7 +44,7 @@ public class Teacher {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public String getPhone() {
@@ -53,7 +52,7 @@ public class Teacher {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public String getEmail() {
@@ -61,7 +60,7 @@ public class Teacher {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email == null ? null : email.trim();
     }
 
     public String getClasss() {
@@ -69,6 +68,6 @@ public class Teacher {
     }
 
     public void setClasss(String classs) {
-        this.classs = classs;
+        this.classs = classs == null ? null : classs.trim();
     }
 }

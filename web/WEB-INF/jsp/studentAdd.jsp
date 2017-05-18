@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>studentAdd</title>
-    <link rel="stylesheet" type="text/css" href="/ui/themes/ui-pepper-grinder/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/ui/themes/material/easyui.css">
     <link rel="stylesheet" type="text/css" href="/ui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/ui/demo/demo.css">
     <link rel="stylesheet" type="text/css" href="/ui/credit.css">
@@ -37,13 +37,13 @@
         <div class="messager-input" style="height: 56px; margin: 10px;">
             <p align="center" style="font-size: 14px;">
                 <label>班&nbsp;&nbsp;级&nbsp;&nbsp;&nbsp;</label>
-                <input id="classs" name="classs" class="easyui-validatebox">
+                <input id="classs" name="classs" class="easyui-textbox">
             </p>
         </div>
         <div class="messager-input" style="height: 56px; margin: 10px;">
             <p align="center" style="font-size: 14px;">
                 <label>系&nbsp;&nbsp;别&nbsp;&nbsp;&nbsp;</label>
-                <input id="department" name="department" class="easyui-validatebox">
+                <input id="department" name="department" class="easyui-textbox">
             </p>
         </div>
         <div class="messager-input" style="height: 56px; margin: 10px;">

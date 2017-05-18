@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>studentList</title>
-    <link rel="stylesheet" type="text/css" href="/ui/themes/ui-pepper-grinder/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/ui/themes/material/easyui.css">
     <link rel="stylesheet" type="text/css" href="/ui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/ui/demo/demo.css">
     <link rel="stylesheet" type="text/css" href="/ui/credit.css">

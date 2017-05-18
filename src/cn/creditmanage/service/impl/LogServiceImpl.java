@@ -32,4 +32,20 @@ public class LogServiceImpl implements LogService {
             return false;
         }
     }
+
+    @Override
+    public Student getStudentByUserName(String username) {
+        SqlSession sqlSession = PageUtil.openSqlSession();
+        LogMapper logMapper = sqlSession.getMapper(LogMapper.class);
+        Student student = logMapper.selectStudentByUsername(username);
+        return student;
+    }
+
+    @Override
+    public Teacher getTeacherByUserName(String username) {
+        SqlSession sqlSession = PageUtil.openSqlSession();
+        LogMapper logMapper = sqlSession.getMapper(LogMapper.class);
+        Teacher teacher = logMapper.selectTeacherByUsername(username);
+        return teacher;
+    }
 }

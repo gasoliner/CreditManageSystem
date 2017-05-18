@@ -37,7 +37,7 @@
                 <a href="#" class="easyui-linkbutton" onclick="addTab('信誉状况相关','UI/xinyu')">信誉状况相关</a>
             </div>
     </div>
-    <c:if test="${role} == '1'">
+    <c:if test="${role == 1}">
     <div title="学生管理" iconCls="icon-man" style="overflow: auto;padding: 10px;">
         <div class="menu-last">
             <a href="#" class="easyui-linkbutton" onclick="addTab('学生列表','UI/studentList')">学生列表</a>

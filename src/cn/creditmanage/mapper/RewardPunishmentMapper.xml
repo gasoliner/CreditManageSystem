@@ -243,6 +243,11 @@
 
   <select id="selectAllReward" parameterType="pageInfo" resultType="rewardPunishment">
     select * from reward_punishment
+    <where>
+      <if test="user != null">
+        username = #{user}
+      </if>
+    </where>
     limit #{start},#{size};
   </select>
 

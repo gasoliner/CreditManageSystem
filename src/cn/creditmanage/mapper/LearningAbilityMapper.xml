@@ -258,6 +258,11 @@
 
   <select id="selectAllLearning" parameterType="pageInfo" resultType="learningAbility">
     select * from learning_ability
+    <where>
+      <if test="user != null">
+        username = #{user}
+      </if>
+    </where>
     limit #{start},#{size};
   </select>
 </mapper>

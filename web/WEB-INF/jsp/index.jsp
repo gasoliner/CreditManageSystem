@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>首页</title>
-    <link rel="stylesheet" type="text/css" href="/ui/themes/ui-cupertino/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/ui/themes/material/easyui.css">
     <link rel="stylesheet" type="text/css" href="/ui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/ui/demo/demo.css">
     <script type="text/javascript" src="/ui/jquery.min.js"></script>

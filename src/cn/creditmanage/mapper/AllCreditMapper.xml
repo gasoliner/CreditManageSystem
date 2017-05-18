@@ -40,6 +40,11 @@
     INNER JOIN reputation ON basic_situation.username = reputation.username
     INNER JOIN reward_punishment ON basic_situation.username = reward_punishment.username
     INNER JOIN trust_worthiness ON basic_situation.username = trust_worthiness.username
+      <where>
+          <if test="user != null">
+              basic_situation.username = #{user}
+          </if>
+      </where>
     LIMIT #{start},#{size}
   </select>
 

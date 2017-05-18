@@ -5,7 +5,6 @@ import cn.creditmanage.po.User;
 import cn.creditmanage.service.LogService;
 import cn.creditmanage.service.impl.LogServiceImpl;
 import cn.creditmanage.util.PageUtil;
-import com.alibaba.fastjson.JSON;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -56,24 +55,25 @@ public class LoginServlet extends HttpServlet {
             user.setPassword(password);
             user.setRole(2);
             if (logService.studentLogin(user)){
+                int id = logService.getStudentByUserName(user.getUsername()).getSid();
+                req.getSession().setAttribute("id",id);
                 req.getSession().setAttribute("user",user.getUsername());
                 req.getSession().setAttribute("role",user.getRole());
-//                req.getRequestDispatcher("/UI/index");
-//                response.sendRedirect("/UI/index");
                 return "/UI/index";
             }else {
                 return "/UI/sign";
             }
 
         }else {
+
             user.setUsername(username);
             user.setPassword(password);
             user.setRole(1);
-            if (logService.studentLogin(user)){
+            if (logService.teacherLogin(user)){
+                int id = logService.getTeacherByUserName(user.getUsername()).getTid();
+                req.getSession().setAttribute("id",id);
                 req.getSession().setAttribute("user",user.getUsername());
                 req.getSession().setAttribute("role",user.getRole());
-//                req.getRequestDispatcher("/UI/index");
-//                response.sendRedirect("/UI/index");
                 return "/UI/index";
             }else {
                 return "/UI/sign";

@@ -51,6 +51,9 @@ public class RewardPunishmentServlet extends HttpServlet {
         PageInfo pageInfo = new PageInfo();
         pageInfo.setPage(Integer.parseInt(request.getParameter("page")));
         pageInfo.setSize(Integer.parseInt(request.getParameter("rows")));
+        if (request.getParameter("user") != null){
+            pageInfo.setUser(request.getParameter("user"));
+        }
         return JSON.toJSONString(rewardService.list(pageInfo));
     }
 
