@@ -1,6 +1,8 @@
 package cn.creditmanage.servlet;
 
 
+import cn.creditmanage.po.Student;
+import cn.creditmanage.po.Teacher;
 import cn.creditmanage.po.User;
 import cn.creditmanage.service.LogService;
 import cn.creditmanage.service.impl.LogServiceImpl;
@@ -55,10 +57,15 @@ public class LoginServlet extends HttpServlet {
             user.setPassword(password);
             user.setRole(2);
             if (logService.studentLogin(user)){
-                int id = logService.getStudentByUserName(user.getUsername()).getSid();
+                Student student = logService.getStudentByUserName(user.getUsername());
+                int id = student.getSid();
                 req.getSession().setAttribute("id",id);
                 req.getSession().setAttribute("user",user.getUsername());
                 req.getSession().setAttribute("role",user.getRole());
+                req.getSession().setAttribute("number",student.getNumber());
+                req.getSession().setAttribute("phone",student.getPhone());
+                req.getSession().setAttribute("email",student.getEmail());
+                req.getSession().setAttribute("classs",student.getClasss());
                 return "/UI/index";
             }else {
                 return "/UI/sign";
@@ -70,10 +77,15 @@ public class LoginServlet extends HttpServlet {
             user.setPassword(password);
             user.setRole(1);
             if (logService.teacherLogin(user)){
-                int id = logService.getTeacherByUserName(user.getUsername()).getTid();
+                Teacher teacher = logService.getTeacherByUserName(user.getUsername());
+                int id = teacher.getTid();
                 req.getSession().setAttribute("id",id);
                 req.getSession().setAttribute("user",user.getUsername());
                 req.getSession().setAttribute("role",user.getRole());
+                req.getSession().setAttribute("classs",teacher.getClasss());
+                req.getSession().setAttribute("employeenum",teacher.getEmployeenum());
+                req.getSession().setAttribute("email",teacher.getEmail());
+                req.getSession().setAttribute("phone",teacher.getPhone());
                 return "/UI/index";
             }else {
                 return "/UI/sign";

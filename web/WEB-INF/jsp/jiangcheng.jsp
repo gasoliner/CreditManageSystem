@@ -35,7 +35,7 @@
             <th field="schoolreward" width="50">学校奖励</th>
             <th field="breakrule" width="50">违反校规校纪</th>
             <th field="breaklaw" width="50">违法</th>
-            <th field="rpscore" width="50">学习能力评分</th>
+            <th field="rpscore" width="50">奖惩能力评分</th>
         </tr>
         </thead>
     </table>
@@ -72,7 +72,7 @@
             <input name="breaklaw">
         </div><br/>
         <div class="fitem">
-            <label>学习能力评分&nbsp;&nbsp;&nbsp;</label>
+            <label>奖惩能力评分&nbsp;&nbsp;&nbsp;</label>
             <input id="rpscore" name="rpscore">
         </div>
     </form>

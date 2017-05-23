@@ -14,7 +14,7 @@
     <div class="messager-input" style="height: 56px; margin: 10px;">
         <p align="center" style="font-size: 16px;">
             <label for="oldpass" >输入原密码: </label>
-            <input id="oldpass" class="easyui-textbox" type="password" style="width: 300px;height: 32px"/>
+            <input id="oldpass" class="easyui-textbox" type="password"  style="width: 300px;height: 32px"/>
         </p>
     </div>
     <div class="messager-input" style="height: 56px; margin: 10px;">
@@ -41,7 +41,7 @@
     <input id="tid" type="hidden" value="${id}"/>
 </div>
 <div>
-    <input id="rid" type="hidden" value="${rid}"/>
+    <input id="rid" type="hidden" value="${role}"/>
 </div>
 </body>
 </html>
