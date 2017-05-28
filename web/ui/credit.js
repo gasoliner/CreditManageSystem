@@ -295,7 +295,6 @@ function perInf1_student() {
 }
 function perPas1() {
 
-    alert($("#oldpass").val());
     $.post("/info/password",
         {
             tid:$("#tid").val(),
