@@ -32,6 +32,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void insert(Student record) {
+        record.setPassword("000000");
         SqlSession sqlSession = PageUtil.openSqlSession();
         StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
         studentMapper.insertSelective(record);
