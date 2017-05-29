@@ -307,4 +307,9 @@ function perPas1() {
             alert(data);
         });
 }
-
+function showRule() {
+    $("#ruleDialog").dialog("open").dialog("setTitle","查看");
+}
+function closeRuleDialog() {
+    $("#ruleDialog").dialog("close");
+}

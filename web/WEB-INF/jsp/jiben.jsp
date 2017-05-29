@@ -51,6 +51,7 @@
         <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newBasic()">新建</a>
         <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editBasic()">编辑</a>
         <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyBasic()">删除</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="showRule()">查看评分细则</a>
     </div>
 </c:if>
 <div id="basicDialog" class="easyui-dialog" style="width:500px;height:550px;padding:10px 20px"
@@ -82,6 +83,64 @@
             <input id="bsscore" name="bsscore">
         </div>
     </form>
+</div>
+<div id="ruleDialog" class="easyui-dialog" style="width:500px;height:550px;padding:10px 20px"
+     closed="true" buttons="#rule-buttons">
+    <p>
+        <strong><span style="font-size: 18px;">基本情况评分规则</span></strong><br/>
+    </p>
+    <p>
+        <strong><span style="font-size: 18px;"><br/></span></strong>
+    </p>
+    <p>
+        <span style="font-size: 16px;">同学评分由随机抽取一名同学对其进行评分，老师评分由班主任评价。</span><br/>
+    </p>
+    <p>
+        <br/>
+    </p>
+    <table>
+        <tbody>
+        <tr class="firstRow">
+            <td width="401" valign="top" style="word-break: break-all;">
+                评分项
+            </td>
+            <td width="401" valign="top" style="word-break: break-all;">
+                评分规则
+            </td>
+        </tr>
+        <tr>
+            <td width="401" valign="top" style="word-break: break-all;">
+                同学评分
+            </td>
+            <td width="401" valign="top" style="word-break: break-all;">
+                满分100分，根据对该同学平时生活表现进行打分
+            </td>
+        </tr>
+        <tr>
+            <td width="401" valign="top" style="word-break: break-all;">
+                老师评分
+            </td>
+            <td width="401" valign="top" style="word-break: break-all;">
+                满分100分，老师根据该同学平时表现打分
+            </td>
+        </tr>
+        <tr>
+            <td width="401" valign="top" style="word-break: break-all;">
+                基本情况评分
+            </td>
+            <td width="401" valign="top" style="word-break: break-all;">
+                （同学评分+老师评分）/2，四舍五入处理
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <br/>
+    </p>
+</div>
+<div id="rule-buttons">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="closeRuleDialog()">好的</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#ruleDialog').dialog('close')">取消</a>
 </div>
 <div id="basicForm-buttons">
     <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveBasic()">保存</a>
